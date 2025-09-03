@@ -24,7 +24,8 @@ public class PaymentController {
     }
 
     @PostMapping("/{method}/refunds/{txId}")
-    public ResponseEntity<Void> refund(@PathVariable String method, @PathVariable String txId) {
+    public ResponseEntity<Void> refund(@PathVariable("method") String method,
+                                    @PathVariable("txId") String txId) {
         service.refund(method, txId);
         return ResponseEntity.noContent().build();
     }
